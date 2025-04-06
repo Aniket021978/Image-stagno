@@ -1,7 +1,21 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
 import svgToDataUri from "mini-svg-data-uri";
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+
+// Custom function to flatten color palette
+function flattenColorPalette(colors: any): Record<string, string> {
+  const result: Record<string, string> = {};
+  Object.entries(colors).forEach(([key, value]) => {
+    if (typeof value === "object" && value !== null) {
+      Object.entries(value).forEach(([shade, color]) => {
+        result[`${key}-${shade}`] = color as string;
+      });
+    } else if (typeof value === "string") {
+      result[key] = value;
+    }
+  });
+  return result;
+}
 
 const config: Config = {
   content: [
@@ -59,6 +73,7 @@ const config: Config = {
     },
   ],
 };
+
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
