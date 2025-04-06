@@ -12,9 +12,9 @@ interface NavBarProps {
 
 export default function NavBar({ activePage }: NavBarProps) {
   return (
-    <Navbar maxWidth="2xl" className="bg-gray-800 navbar">
+    <Navbar maxWidth="2xl" className="bg-gray-800 navbar shadow-lg">
       <NavbarBrand>
-        <p className="font-bold text-inherit">
+        <p className="font-bold text-inherit transition-transform duration-300 hover:scale-110">
           <Link href="/" className="text-lg text-white">
             Stagno
           </Link>
@@ -26,7 +26,7 @@ export default function NavBar({ activePage }: NavBarProps) {
             color={activePage === "/" ? "secondary" : "foreground"}
             href="/"
             aria-current="page"
-            className="text-sm sm:text-base md:text-lg text-white"
+            className="text-sm sm:text-base md:text-lg text-white hover:text-[#1ABC9C] transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#1ABC9C] after:left-0 after:bottom-[-4px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
           >
             Home
           </Link>
@@ -36,7 +36,7 @@ export default function NavBar({ activePage }: NavBarProps) {
             color={activePage === "/encode" ? "secondary" : "foreground"}
             href="/encode"
             aria-current="page"
-            className="text-sm sm:text-base md:text-lg text-white"
+            className="text-sm sm:text-base md:text-lg text-white hover:text-[#1ABC9C] transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#1ABC9C] after:left-0 after:bottom-[-4px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
           >
             Encode
           </Link>
@@ -46,7 +46,7 @@ export default function NavBar({ activePage }: NavBarProps) {
             color={activePage === "/decode" ? "secondary" : "foreground"}
             href="/decode"
             aria-current="page"
-            className="text-sm sm:text-base md:text-lg text-white"
+            className="text-sm sm:text-base md:text-lg text-white hover:text-[#1ABC9C] transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#1ABC9C] after:left-0 after:bottom-[-4px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
           >
             Decode
           </Link>

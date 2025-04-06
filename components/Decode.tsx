@@ -125,9 +125,9 @@ const Decode = () => {
   
         const parts = message.split(DELIMITER);
         let text = "";
-        let embeddedImage = null;
-        let customWidth = 0;
-        let customHeight = 0;
+        let embeddedImage: string | null = null;  
+        let customWidth: number = 0;           
+        let customHeight: number = 0;
   
         if (parts.length > 0 && message.length > 0) {
           const base64ImageRegex = /^data:image\/(png|jpeg|jpg);base64,[\w+\/=]+$/;
@@ -422,10 +422,9 @@ const Decode = () => {
                       <Image
                         src={data.image}
                         alt={`Hidden Image from ${data.name}`}
-                        className="rounded-md"
+                        className="rounded-md object-contain"
                         width={data.width} 
                         height={data.height} 
-                        objectFit="contain"
                         onError={() => console.log(`Failed to load image from ${data.name}: ${data.image}`)}
                       />
                     </div>
