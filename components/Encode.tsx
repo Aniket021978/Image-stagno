@@ -89,12 +89,12 @@ const Encode = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedFiles = localStorage.getItem("files");
-      const savedHiddenFiles = localStorage.getItem("hiddenFiles");
-      const savedImageTexts = localStorage.getItem("imageTexts");
-      const savedTextImageIndices = localStorage.getItem("textImageIndices");
-      const savedEncryptionKeys = localStorage.getItem("encryptionKeys");
-      const savedHiddenImageIndices = localStorage.getItem("hiddenImageIndices");
+      const savedFiles = sessionStorage.getItem("files");
+      const savedHiddenFiles = sessionStorage.getItem("hiddenFiles");
+      const savedImageTexts = sessionStorage.getItem("imageTexts");
+      const savedTextImageIndices = sessionStorage.getItem("textImageIndices");
+      const savedEncryptionKeys = sessionStorage.getItem("encryptionKeys");
+      const savedHiddenImageIndices = sessionStorage.getItem("hiddenImageIndices");
 
       if (savedFiles) setFiles(JSON.parse(savedFiles));
       if (savedHiddenFiles) setHiddenFiles(JSON.parse(savedHiddenFiles));
@@ -107,12 +107,12 @@ const Encode = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("files", JSON.stringify(files));
-      localStorage.setItem("hiddenFiles", JSON.stringify(hiddenFiles));
-      localStorage.setItem("imageTexts", JSON.stringify(imageTexts));
-      localStorage.setItem("textImageIndices", JSON.stringify(textImageIndices));
-      localStorage.setItem("encryptionKeys", JSON.stringify(encryptionKeys));
-      localStorage.setItem("hiddenImageIndices", JSON.stringify(hiddenImageIndices));
+      sessionStorage.setItem("files", JSON.stringify(files));
+      sessionStorage.setItem("hiddenFiles", JSON.stringify(hiddenFiles));
+      sessionStorage.setItem("imageTexts", JSON.stringify(imageTexts));
+      sessionStorage.setItem("textImageIndices", JSON.stringify(textImageIndices));
+      sessionStorage.setItem("encryptionKeys", JSON.stringify(encryptionKeys));
+      sessionStorage.setItem("hiddenImageIndices", JSON.stringify(hiddenImageIndices));
     }
   }, [files, hiddenFiles, imageTexts, textImageIndices, encryptionKeys, hiddenImageIndices]);
 
@@ -368,7 +368,7 @@ const Encode = () => {
         setHiddenImageIndices([]);
         setTextImageIndices([]);
         if (typeof window !== "undefined") {
-          localStorage.clear();
+          sessionStorage.clear();
         }
       }, 2000);
     } catch (error) {
