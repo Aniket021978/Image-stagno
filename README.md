@@ -15,7 +15,6 @@ A web-based **steganography tool** that allows users to **hide (encode)** and **
 1. **Clone the Repository**  
    ```sh
    git clone repository-name
-   cd front
    ```
 2. **Install Dependencies**  
    ```sh
